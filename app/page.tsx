@@ -354,7 +354,7 @@ export default function Page() {
       </>
     );
   }
-  
+
     if (screen === "q2b") {
     return (
       <>
@@ -832,19 +832,16 @@ export default function Page() {
                 opportunity is, and how to move forward with more confidence.
               </p>
               <div className="feature-list" style={{ marginTop: 24 }}>
-                <div className="feature-item">
-                  <div className="feature-dot" />
-                  <p>4 additional insights tailored to your business</p>
-                </div>
-                <div className="feature-item">
-                  <div className="feature-dot" />
-                  <p>Clear actions you can implement immediately</p>
-                </div>
-                <div className="feature-item">
-                  <div className="feature-dot" />
-                  <p>Written to match your business model and stage</p>
-                </div>
-              </div>
+  <div className="feature-item">
+    <p>4 additional insights tailored to your business</p>
+  </div>
+  <div className="feature-item">
+    <p>Clear actions you can implement immediately</p>
+  </div>
+  <div className="feature-item">
+    <p>Written to match your business model and stage</p>
+  </div>
+</div>
               <div style={{ marginTop: 24 }}>
                 <div className="small-label">Email for delivery</div>
                 <input
