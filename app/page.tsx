@@ -33,6 +33,7 @@ type Answers = {
   priority: string;
   email: string;
 };
+
 function Shell({
   title,
   subtitle,
@@ -137,9 +138,11 @@ export default function Page() {
 
   const branchSteps = useMemo(() => {
     if (answers.constraint === "Not enough leads") return ["branch1", "branch2", "branch3"];
-    if (answers.constraint === "Leads but not converting") return ["branch1", "branch2", "branch3"];
+    if (answers.constraint === "Leads but not converting")
+      return ["branch1", "branch2", "branch3"];
     if (answers.constraint === "Customers not coming back") return ["branch1", "branch2"];
-    if (answers.constraint === "Operations are messy or inefficient") return ["branch1", "branch2"];
+    if (answers.constraint === "Operations are messy or inefficient")
+      return ["branch1", "branch2"];
     if (answers.constraint === "I am not sure") return ["branch1"];
     return [];
   }, [answers.constraint]);
@@ -216,8 +219,6 @@ export default function Page() {
 
   const insight = getVisibleInsight();
 
- 
-
   if (screen === "landing") {
     return (
       <>
@@ -226,12 +227,12 @@ export default function Page() {
             <div>
               <div className="eyebrow">Clarity Audit</div>
               <h1 className="hero-title">
-  Fix your biggest
-  <br />
-  business bottleneck
-  <br />
-  in 2 minutes
-</h1>
+                Fix your biggest
+                <br />
+                business bottleneck
+                <br />
+                in 2 minutes
+              </h1>
               <p className="hero-copy">
                 Answer a few quick questions and get a clear, useful insight based on how your
                 business actually works.
@@ -243,10 +244,10 @@ export default function Page() {
                 <button className="secondary-button">See example result</button>
               </div>
               <div className="meta-row">
-  <div className="meta-pill">No signup required</div>
-  <div className="meta-pill">Takes about 2 minutes</div>
-  <div className="meta-pill">Built for real businesses</div>
-</div>
+                <div className="meta-pill">No signup required</div>
+                <div className="meta-pill">Takes about 2 minutes</div>
+                <div className="meta-pill">Built for real businesses</div>
+              </div>
             </div>
 
             <div className="panel big-panel fade-in">
@@ -302,10 +303,12 @@ export default function Page() {
   if (screen === "q1") {
     return (
       <>
-        <Shell title="Which best describes your business and how you make money?">
-        currentStep={currentStep}
-  totalSteps={totalSteps}
-  progress={progress}
+        <Shell
+          title="Which best describes your business and how you make money?"
+          currentStep={currentStep}
+          totalSteps={totalSteps}
+          progress={progress}
+        >
           <OptionButtons
             options={[
               "Service based projects or one off work",
@@ -327,10 +330,12 @@ export default function Page() {
   if (screen === "q2") {
     return (
       <>
-        <Shell title="Which best describes where your business is right now?">
-        currentStep={currentStep}
-  totalSteps={totalSteps}
-  progress={progress}
+        <Shell
+          title="Which best describes where your business is right now?"
+          currentStep={currentStep}
+          totalSteps={totalSteps}
+          progress={progress}
+        >
           <OptionButtons
             options={[
               "Pre revenue or early under 6 months",
@@ -350,10 +355,12 @@ export default function Page() {
   if (screen === "q3") {
     return (
       <>
-        <Shell title="Which best describes your current financial situation?">
-        currentStep={currentStep}
-  totalSteps={totalSteps}
-  progress={progress}
+        <Shell
+          title="Which best describes your current financial situation?"
+          currentStep={currentStep}
+          totalSteps={totalSteps}
+          progress={progress}
+        >
           <OptionButtons
             options={[
               "Profitable and stable",
@@ -373,10 +380,12 @@ export default function Page() {
   if (screen === "q4") {
     return (
       <>
-        <Shell title="How big is your team right now?">
-        currentStep={currentStep}
-  totalSteps={totalSteps}
-  progress={progress}
+        <Shell
+          title="How big is your team right now?"
+          currentStep={currentStep}
+          totalSteps={totalSteps}
+          progress={progress}
+        >
           <OptionButtons
             options={["Just me", "2 to 5", "6 to 20", "20 plus"]}
             onSelect={(value) => setValue("teamSize", value, "q4")}
@@ -393,6 +402,9 @@ export default function Page() {
         <Shell
           title="What is currently limiting your growth the most?"
           subtitle="Pick the one that feels most true today."
+          currentStep={currentStep}
+          totalSteps={totalSteps}
+          progress={progress}
         >
           <OptionButtons
             options={[
@@ -414,10 +426,12 @@ export default function Page() {
     if (answers.constraint === "Not enough leads") {
       return (
         <>
-          <Shell title="Where do your customers come from, and how consistent is that flow?">
-          currentStep={currentStep}
-  totalSteps={totalSteps}
-  progress={progress}
+          <Shell
+            title="Where do your customers come from, and how consistent is that flow?"
+            currentStep={currentStep}
+            totalSteps={totalSteps}
+            progress={progress}
+          >
             <OptionButtons
               options={[
                 "Paid ads and consistent",
@@ -438,10 +452,12 @@ export default function Page() {
     if (answers.constraint === "Leads but not converting") {
       return (
         <>
-          <Shell title="How does a lead become a customer in your business?">
-          currentStep={currentStep}
-  totalSteps={totalSteps}
-  progress={progress}
+          <Shell
+            title="How does a lead become a customer in your business?"
+            currentStep={currentStep}
+            totalSteps={totalSteps}
+            progress={progress}
+          >
             <OptionButtons
               options={[
                 "Direct purchase with no sales process",
@@ -461,10 +477,12 @@ export default function Page() {
     if (answers.constraint === "Customers not coming back") {
       return (
         <>
-          <Shell title="What typically happens after someone buys from you?">
-          currentStep={currentStep}
-  totalSteps={totalSteps}
-  progress={progress}
+          <Shell
+            title="What typically happens after someone buys from you?"
+            currentStep={currentStep}
+            totalSteps={totalSteps}
+            progress={progress}
+          >
             <OptionButtons
               options={[
                 "One time purchase only",
@@ -483,10 +501,12 @@ export default function Page() {
     if (answers.constraint === "Operations are messy or inefficient") {
       return (
         <>
-          <Shell title="What takes up most of your time, and where do things feel inefficient?">
-          currentStep={currentStep}
-  totalSteps={totalSteps}
-  progress={progress}
+          <Shell
+            title="What takes up most of your time, and where do things feel inefficient?"
+            currentStep={currentStep}
+            totalSteps={totalSteps}
+            progress={progress}
+          >
             <OptionButtons
               options={[
                 "Admin or organisation",
@@ -505,10 +525,12 @@ export default function Page() {
 
     return (
       <>
-        <Shell title="Which feels closest to your situation right now?">
-        currentStep={currentStep}
-  totalSteps={totalSteps}
-  progress={progress}
+        <Shell
+          title="Which feels closest to your situation right now?"
+          currentStep={currentStep}
+          totalSteps={totalSteps}
+          progress={progress}
+        >
           <OptionButtons
             options={[
               "We need more customers",
@@ -528,10 +550,12 @@ export default function Page() {
     if (answers.constraint === "Not enough leads") {
       return (
         <>
-          <Shell title="Do you have an audience you can reach directly, and roughly how large is it?">
-          currentStep={currentStep}
-  totalSteps={totalSteps}
-  progress={progress}
+          <Shell
+            title="Do you have an audience you can reach directly, and roughly how large is it?"
+            currentStep={currentStep}
+            totalSteps={totalSteps}
+            progress={progress}
+          >
             <OptionButtons
               options={[
                 "No audience",
@@ -551,10 +575,12 @@ export default function Page() {
     if (answers.constraint === "Leads but not converting") {
       return (
         <>
-          <Shell title="Where do leads usually drop off or lose interest?">
-          currentStep={currentStep}
-  totalSteps={totalSteps}
-  progress={progress}
+          <Shell
+            title="Where do leads usually drop off or lose interest?"
+            currentStep={currentStep}
+            totalSteps={totalSteps}
+            progress={progress}
+          >
             <OptionButtons
               options={[
                 "Website or landing page",
@@ -574,10 +600,12 @@ export default function Page() {
     if (answers.constraint === "Customers not coming back") {
       return (
         <>
-          <Shell title="Do customers come back or refer others?">
-          currentStep={currentStep}
-  totalSteps={totalSteps}
-  progress={progress}
+          <Shell
+            title="Do customers come back or refer others?"
+            currentStep={currentStep}
+            totalSteps={totalSteps}
+            progress={progress}
+          >
             <OptionButtons
               options={["Frequently", "Sometimes", "Rarely", "Never", "Not sure"]}
               onSelect={(value) => setValue("branch2", value, "branch2")}
@@ -590,10 +618,12 @@ export default function Page() {
 
     return (
       <>
-        <Shell title="If you stepped away for a week, what would break first?">
-        currentStep={currentStep}
-  totalSteps={totalSteps}
-  progress={progress}
+        <Shell
+          title="If you stepped away for a week, what would break first?"
+          currentStep={currentStep}
+          totalSteps={totalSteps}
+          progress={progress}
+        >
           <TextInputScreen
             value={answers.branch2}
             onChange={(value) => setAnswers((prev) => ({ ...prev, branch2: value }))}
@@ -610,10 +640,12 @@ export default function Page() {
     if (answers.constraint === "Not enough leads") {
       return (
         <>
-          <Shell title="If you stopped marketing today, how long would new customers still come in?">
-          currentStep={currentStep}
-  totalSteps={totalSteps}
-  progress={progress}
+          <Shell
+            title="If you stopped marketing today, how long would new customers still come in?"
+            currentStep={currentStep}
+            totalSteps={totalSteps}
+            progress={progress}
+          >
             <OptionButtons
               options={["They would not", "A few days", "A few weeks", "Consistently"]}
               onSelect={(value) => setValue("branch3", value, "branch3")}
@@ -626,10 +658,12 @@ export default function Page() {
 
     return (
       <>
-        <Shell title="What usually stops someone from buying?">
-        currentStep={currentStep}
-  totalSteps={totalSteps}
-  progress={progress}
+        <Shell
+          title="What usually stops someone from buying?"
+          currentStep={currentStep}
+          totalSteps={totalSteps}
+          progress={progress}
+        >
           <OptionButtons
             options={[
               "Price",
@@ -653,6 +687,9 @@ export default function Page() {
         <Shell
           title="What do you sell, how is it priced, and why do customers choose you?"
           subtitle="A short answer is enough."
+          currentStep={currentStep}
+          totalSteps={totalSteps}
+          progress={progress}
         >
           <TextInputScreen
             value={answers.offer}
@@ -672,6 +709,9 @@ export default function Page() {
         <Shell
           title="What have you already tried, and what would you fix first in the next 30 days?"
           subtitle="This helps avoid generic advice and focus on the right next move."
+          currentStep={currentStep}
+          totalSteps={totalSteps}
+          progress={progress}
         >
           <TextInputScreen
             value={answers.priority}
@@ -891,8 +931,8 @@ function Styles() {
       body {
         margin: 0;
         padding: 0;
-        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-          sans-serif;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", sans-serif;
         background: #f5f5f2;
         color: #111111;
       }
@@ -918,12 +958,11 @@ function Styles() {
       }
 
       .hero-grid {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 56px;
-  align-items: center;
-  min-height: 100vh;
-}
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 72px;
+        align-items: center;
+        min-height: 100vh;
       }
 
       .eyebrow {
@@ -933,53 +972,56 @@ function Styles() {
         background: #ffffff;
         color: #5f5f57;
         border-radius: 999px;
-        padding: 8px 14px;
-        font-size: 14px;
-        margin-bottom: 20px;
+        padding: 6px 12px;
+        font-size: 13px;
+        margin-bottom: 18px;
+        letter-spacing: 0.02em;
       }
 
       .hero-title {
-  font-size: 58px;
-  line-height: 0.98;
-  letter-spacing: -0.045em;
-  margin: 0;
-  max-width: 620px;
-}
+        font-size: 58px;
+        line-height: 1.02;
+        letter-spacing: -0.045em;
+        margin: 0;
+        max-width: 620px;
+      }
 
       .hero-copy {
-  font-size: 19px;
-  line-height: 1.75;
-  color: #5f5f57;
-  max-width: 600px;
-  margin-top: 26px;
-}
+        font-size: 19px;
+        line-height: 1.75;
+        color: #5f5f57;
+        max-width: 600px;
+        margin-top: 26px;
+      }
 
       .button-row {
-  display: flex;
-  gap: 12px;
-  margin-top: 30px;
-  flex-wrap: wrap;
-}
+        display: flex;
+        gap: 12px;
+        margin-top: 30px;
+        flex-wrap: wrap;
+      }
 
       .primary-button,
-.secondary-button {
-  height: 52px;
-  border-radius: 18px;
-  font-size: 15px;
-  padding: 0 22px;
-  cursor: pointer;
-  transition: 0.2s ease;
-  font-weight: 500;
-}
+      .secondary-button {
+        height: 52px;
+        border-radius: 18px;
+        font-size: 15px;
+        padding: 0 22px;
+        cursor: pointer;
+        transition: 0.2s ease;
+        font-weight: 500;
+      }
 
       .primary-button {
         border: 0;
         background: #111111;
         color: #ffffff;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
       }
 
       .primary-button:hover {
         background: #1e1e1e;
+        transform: translateY(-1px);
       }
 
       .primary-button:disabled {
@@ -988,9 +1030,10 @@ function Styles() {
       }
 
       .secondary-button {
-        border: 1px solid #d9d9d1;
+        border: 1px solid #e3e3dc;
         background: #ffffff;
         color: #111111;
+        opacity: 0.85;
       }
 
       .secondary-button:hover {
@@ -998,31 +1041,32 @@ function Styles() {
       }
 
       .meta-row {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-top: 22px;
-}
-  .meta-pill {
-  border: 1px solid #e7e7e1;
-  background: #fbfbf8;
-  color: #6a6a63;
-  border-radius: 999px;
-  padding: 9px 12px;
-  font-size: 13px;
-  line-height: 1;
-}
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 22px;
+      }
+
+      .meta-pill {
+        border: 1px solid #e7e7e1;
+        background: #fbfbf8;
+        color: #6a6a63;
+        border-radius: 999px;
+        padding: 9px 12px;
+        font-size: 13px;
+        line-height: 1;
+      }
 
       .panel {
-        background: #ffffff;
-        border: 1px solid #e6e6e1;
+        background: #fbfbf8;
+        border: 1px solid #ecece6;
         border-radius: 28px;
-        box-shadow: 0 18px 60px rgba(22, 22, 18, 0.06);
+        box-shadow: 0 12px 40px rgba(22, 22, 18, 0.04);
       }
 
       .big-panel {
-  padding: 32px;
-}
+        padding: 32px;
+      }
 
       .small-label {
         font-size: 14px;
@@ -1036,31 +1080,31 @@ function Styles() {
       }
 
       .feature-item {
-  display: flex;
-  gap: 14px;
-  align-items: flex-start;
-  padding: 20px;
-  border-radius: 22px;
-  border: 1px solid #efefe9;
-  background: #fcfcfa;
-}
+        display: flex;
+        gap: 14px;
+        align-items: flex-start;
+        padding: 18px;
+        border-radius: 18px;
+        border: 1px solid #ecece6;
+        background: #ffffff;
+      }
 
       .feature-item p {
-  margin: 0;
-  font-size: 15px;
-  line-height: 1.8;
-  color: #41413b;
-}
+        margin: 0;
+        font-size: 15px;
+        line-height: 1.8;
+        color: #41413b;
+      }
 
       .feature-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 999px;
-  background: #3b3b36;
-  margin-top: 10px;
-  flex: none;
-  opacity: 0.75;
-}
+        width: 8px;
+        height: 8px;
+        border-radius: 999px;
+        background: #3b3b36;
+        margin-top: 10px;
+        flex: none;
+        opacity: 0.75;
+      }
 
       .progress-wrap {
         padding-top: 14px;
