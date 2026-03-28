@@ -7,6 +7,7 @@ type Screen =
   | "intro"
   | "q1"
   | "q2"
+  | "q2b"
   | "q3"
   | "q4"
   | "q5"
@@ -22,7 +23,8 @@ type Screen =
 
 type Answers = {
   businessType: string;
-  stage: string;
+  revenue: string;
+  businessAge: string;
   finance: string;
   teamSize: string;
   constraint: string;
@@ -122,9 +124,10 @@ function TextInputScreen({
 
 export default function Page() {
   const [screen, setScreen] = useState<Screen>("landing");
-  const [answers, setAnswers] = useState<Answers>({
+    const [answers, setAnswers] = useState<Answers>({
     businessType: "",
-    stage: "",
+    revenue: "",
+    businessAge: "",
     finance: "",
     teamSize: "",
     constraint: "",
@@ -147,8 +150,8 @@ export default function Page() {
     return [];
   }, [answers.constraint]);
 
-  const questionFlow = useMemo(() => {
-    return ["q1", "q2", "q3", "q4", "q5", ...branchSteps, "q9", "q10"];
+    const questionFlow = useMemo(() => {
+    return ["q1", "q2", "q2b", "q3", "q4", "q5", ...branchSteps, "q9", "q10"];
   }, [branchSteps]);
 
   const currentIndex = Math.max(questionFlow.indexOf(screen), 0);
@@ -327,24 +330,49 @@ export default function Page() {
     );
   }
 
-  if (screen === "q2") {
+    if (screen === "q2") {
     return (
       <>
         <Shell
-          title="Which best describes where your business is right now?"
+          title="What best describes your current monthly revenue?"
           currentStep={currentStep}
           totalSteps={totalSteps}
           progress={progress}
         >
           <OptionButtons
             options={[
-              "Pre revenue or early under 6 months",
-              "Up to £10k per month and under 1 year old",
-              "£10k to £50k per month and 1 to 3 years old",
-              "£50k to £250k per month and 3 plus years old",
-              "£250k plus and established",
+              "Pre revenue",
+              "Up to £10k per month",
+              "£10k to £50k per month",
+              "£50k to £250k per month",
+              "£250k plus per month",
             ]}
-            onSelect={(value) => setValue("stage", value, "q2")}
+            onSelect={(value) => setValue("revenue", value, "q2")}
+          />
+        </Shell>
+        <Styles />
+      </>
+    );
+  }
+  
+    if (screen === "q2b") {
+    return (
+      <>
+        <Shell
+          title="How long has the business been operating?"
+          currentStep={currentStep}
+          totalSteps={totalSteps}
+          progress={progress}
+        >
+          <OptionButtons
+            options={[
+              "Under 6 months",
+              "6 to 12 months",
+              "1 to 3 years",
+              "3 to 5 years",
+              "5 plus years",
+            ]}
+            onSelect={(value) => setValue("businessAge", value, "q2b")}
           />
         </Shell>
         <Styles />
